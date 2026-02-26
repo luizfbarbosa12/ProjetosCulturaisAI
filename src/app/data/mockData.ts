@@ -1,4 +1,4 @@
-import { Project } from "../types/project";
+import type { Project } from "../types/project";
 
 export const mockProjects: Project[] = [
   {
@@ -9,134 +9,682 @@ export const mockProjects: Project[] = [
     maxBudget: 500000,
     createdAt: "2026-01-15",
     updatedAt: "2026-02-20",
+    approvalProbability: 74,
+    editalFiles: [
+      {
+        id: "ef1",
+        name: "Edital_Lei_Rouanet_Artes_Cenicas_2026.pdf",
+        size: 2458000,
+        type: "application/pdf",
+        uploadedAt: "2026-01-15",
+      },
+      {
+        id: "ef2",
+        name: "Anexo_I_Modelo_Planilha_Orcamentaria.pdf",
+        size: 415000,
+        type: "application/pdf",
+        uploadedAt: "2026-01-15",
+      },
+      {
+        id: "ef3",
+        name: "Anexo_II_Criterios_de_Avaliacao.pdf",
+        size: 328000,
+        type: "application/pdf",
+        uploadedAt: "2026-01-15",
+      },
+      {
+        id: "ef4",
+        name: "Anexo_III_Documentos_Obrigatorios.pdf",
+        size: 190000,
+        type: "application/pdf",
+        uploadedAt: "2026-01-15",
+      },
+    ],
+    evaluationCriteria: [
+      {
+        id: "ec1",
+        name: "Relevância cultural e artística",
+        weight: 3,
+        maxScore: 10,
+        description:
+          "Avalia a importância da proposta para o cenário cultural local e nacional, originalidade e qualidade artística.",
+      },
+      {
+        id: "ec2",
+        name: "Viabilidade técnica e orçamentária",
+        weight: 2.5,
+        maxScore: 10,
+        description:
+          "Coerência entre objetivos, cronograma, equipe e orçamento. Realismo dos custos apresentados.",
+      },
+      {
+        id: "ec3",
+        name: "Contrapartida social",
+        weight: 2.5,
+        maxScore: 10,
+        description:
+          "Qualidade e abrangência das ações de contrapartida, especialmente para públicos em situação de vulnerabilidade.",
+      },
+      {
+        id: "ec4",
+        name: "Acessibilidade e inclusão",
+        weight: 2,
+        maxScore: 10,
+        description:
+          "Medidas concretas de acessibilidade para pessoas com deficiência e inclusão de públicos diversos.",
+      },
+      {
+        id: "ec5",
+        name: "Impacto e alcance",
+        weight: 2,
+        maxScore: 10,
+        description:
+          "Número estimado de beneficiários, abrangência territorial e potencial de transformação social.",
+      },
+      {
+        id: "ec6",
+        name: "Capacidade de execução",
+        weight: 1.5,
+        maxScore: 10,
+        description:
+          "Experiência comprovada da equipe, histórico de projetos realizados e estrutura organizacional.",
+      },
+      {
+        id: "ec7",
+        name: "Plano de comunicação e difusão",
+        weight: 1.5,
+        maxScore: 10,
+        description:
+          "Estratégias de divulgação, alcance de mídia e sustentabilidade da visibilidade do projeto.",
+      },
+    ],
     sections: [
       {
         id: "s1",
+        title: "Identificação",
+        description: "Dados do projeto e do proponente (nome, CNPJ, endereço, responsável).",
+        text: "Projeto: Festival de Teatro Comunitário 2026. Proponente: Associação Cultural Palco Aberto. CNPJ: 12.345.678/0001-90. Responsável: Maria Silva. Endereço: Rua das Artes, 100 - São Paulo/SP.",
+        score: 90,
+        suggestions: ["Adicionar telefone e e-mail de contato do responsável"],
+        status: "strong",
+        weight: 1,
+      },
+      {
+        id: "s2",
         title: "Justificativa",
+        description: "Por que o projeto é necessário e relevante para a cultura local.",
         text: "O Festival de Teatro Comunitário visa promover a democratização da cultura nas periferias da cidade, oferecendo acesso gratuito a espetáculos de alta qualidade e fomentando a formação de novos artistas locais através de oficinas e workshops.",
         score: 85,
         suggestions: [
           "Adicionar dados estatísticos sobre acesso à cultura na região",
           "Incluir referências bibliográficas sobre impacto social do teatro",
-          "Mencionar parcerias com instituições locais"
+          "Mencionar parcerias com instituições locais",
         ],
         status: "strong",
-        weight: 3
+        weight: 3,
       },
       {
-        id: "s2",
+        id: "s3",
         title: "Objetivos",
+        description: "O que se pretende alcançar com o projeto (geral e específicos).",
         text: "Realizar 15 apresentações teatrais gratuitas, capacitar 50 jovens em técnicas de teatro, promover a inclusão cultural.",
         score: 65,
         suggestions: [
           "Detalhar melhor os objetivos específicos e mensuráveis",
           "Adicionar indicadores de sucesso para cada objetivo",
-          "Incluir objetivos de longo prazo e impacto social"
+          "Incluir objetivos de longo prazo e impacto social",
         ],
         status: "medium",
-        weight: 2.5
-      },
-      {
-        id: "s3",
-        title: "Metodologia",
-        text: "Serão realizadas oficinas semanais com duração de 3 meses.",
-        score: 45,
-        suggestions: [
-          "Expandir a descrição metodológica com mais detalhes",
-          "Incluir cronograma de atividades",
-          "Descrever a seleção dos participantes",
-          "Explicar as técnicas pedagógicas a serem utilizadas"
-        ],
-        status: "incomplete",
-        weight: 2
+        weight: 2.5,
       },
       {
         id: "s4",
-        title: "Contrapartida Social",
-        text: "Todas as apresentações serão gratuitas e realizadas em espaços públicos de comunidades periféricas. Distribuição de material educativo sobre história do teatro brasileiro para 1000 estudantes de escolas públicas.",
+        title: "Metas",
+        description: "Metas quantitativas e qualitativas com prazos definidos.",
+        text: "Meta 1: 15 espetáculos em 6 meses. Meta 2: 50 jovens capacitados. Meta 3: 5.000 espectadores atingidos.",
+        score: 70,
+        suggestions: [
+          "Detalhar indicadores de verificação para cada meta",
+          "Adicionar metas qualitativas (satisfação do público, formação artística)",
+        ],
+        status: "medium",
+        weight: 2,
+      },
+      {
+        id: "s5",
+        title: "Público-alvo",
+        description: "Quem será beneficiado pelo projeto e de que forma.",
+        text: "Moradores de comunidades periféricas da zona sul de São Paulo, com foco em jovens de 15 a 29 anos e famílias de baixa renda. Estimativa de 5.000 beneficiários diretos.",
+        score: 75,
+        suggestions: [
+          "Detalhar perfil socioeconômico do público",
+          "Incluir estratégias de captação de público",
+        ],
+        status: "medium",
+        weight: 2,
+      },
+      {
+        id: "s6",
+        title: "Cronograma",
+        description: "Linha do tempo com fases, atividades e prazos.",
+        text: "Jan-Mar: pré-produção e ensaios. Abr-Mai: ensaios intensivos. Jun-Jul: temporada de apresentações. Ago: avaliação e prestação de contas.",
+        score: 60,
+        suggestions: [
+          "Detalhar atividades específicas por mês",
+          "Incluir marcos de entrega",
+          "Vincular cronograma ao orçamento por fase",
+        ],
+        status: "medium",
+        weight: 2,
+      },
+      {
+        id: "s7",
+        title: "Orçamento",
+        description: "Detalhamento orçamentário por rubrica e justificativa dos valores.",
+        text: "Orçamento total de R$ 440.000, distribuído entre recursos humanos (41%), infraestrutura (19%), divulgação (10%), produção (22%) e administração (8%).",
+        score: 80,
+        suggestions: [
+          "Incluir cotações de referência para os principais itens",
+          "Justificar valores de cachês com base em piso da categoria",
+        ],
+        status: "strong",
+        weight: 2.5,
+      },
+      {
+        id: "s8",
+        title: "Contrapartidas",
+        description: "O que o projeto oferece em contrapartida à sociedade.",
+        text: "Todas as apresentações serão gratuitas e realizadas em espaços públicos de comunidades periféricas. Distribuição de material educativo sobre história do teatro brasileiro para 1.000 estudantes de escolas públicas.",
         score: 90,
         suggestions: [
           "Incluir parcerias com escolas e centros comunitários",
-          "Detalhar o material educativo a ser distribuído"
+          "Detalhar o material educativo a ser distribuído",
         ],
         status: "strong",
-        weight: 2.5
-      }
+        weight: 2.5,
+      },
+      {
+        id: "s9",
+        title: "Acessibilidade",
+        description: "Medidas de acessibilidade para pessoas com deficiência.",
+        text: "Serão garantidos espaços acessíveis para cadeirantes em todas as apresentações.",
+        score: 50,
+        suggestions: [
+          "Incluir audiodescrição e/ou libras em pelo menos parte dos espetáculos",
+          "Prever orçamento específico para acessibilidade",
+          "Detalhar adaptações para deficiências visuais e auditivas",
+          "Mencionar acessibilidade na comunicação e materiais gráficos",
+        ],
+        status: "incomplete",
+        weight: 2,
+      },
+      {
+        id: "s10",
+        title: "Impacto social",
+        description: "Efeitos esperados do projeto na sociedade e na comunidade.",
+        text: "O projeto impactará diretamente 5.000 moradores da periferia, formará 50 jovens artistas, fortalecerá o circuito cultural local e gerará renda para 25 profissionais da cultura.",
+        score: 85,
+        suggestions: [
+          "Adicionar indicadores de impacto de médio e longo prazo",
+          "Incluir plano de avaliação de impacto pós-projeto",
+        ],
+        status: "strong",
+        weight: 2,
+      },
+      {
+        id: "s11",
+        title: "Plano de comunicação",
+        description: "Estratégias de divulgação e visibilidade do projeto.",
+        text: "Divulgação por redes sociais, cartazes em pontos comunitários e parcerias com rádios comunitárias.",
+        score: 55,
+        suggestions: [
+          "Detalhar cronograma de comunicação",
+          "Incluir metas de alcance nas redes sociais",
+          "Prever assessoria de imprensa",
+          "Adicionar estratégia de mídia espontânea",
+        ],
+        status: "incomplete",
+        weight: 1.5,
+      },
     ],
     budgetItems: [
       {
         id: "b1",
         category: "Recursos Humanos",
-        description: "Contratação de diretores, atores e produtores",
-        amount: 180000
+        description: "Cachê - Diretora Artística (Maria Silva)",
+        amount: 60000,
+        teamMemberId: "t1",
       },
       {
         id: "b2",
-        category: "Infraestrutura",
-        description: "Aluguel de equipamentos de som e iluminação",
-        amount: 85000
+        category: "Recursos Humanos",
+        description: "Cachê - Produtor Executivo (João Santos)",
+        amount: 45000,
+        teamMemberId: "t2",
       },
       {
         id: "b3",
-        category: "Divulgação",
-        description: "Material gráfico e marketing digital",
-        amount: 45000
+        category: "Recursos Humanos",
+        description: "Cachê - Cenógrafa (Ana Oliveira)",
+        amount: 35000,
+        teamMemberId: "t3",
       },
       {
         id: "b4",
-        category: "Produção",
-        description: "Cenografia, figurinos e adereços",
-        amount: 95000
+        category: "Recursos Humanos",
+        description: "Produção Técnica (Teatro Livre Ltda)",
+        amount: 40000,
+        teamMemberId: "t4",
       },
       {
         id: "b5",
+        category: "Recursos Humanos",
+        description: "Cachê - Educador Social (Carlos Lima)",
+        amount: 25000,
+        teamMemberId: "t5",
+      },
+      {
+        id: "b6",
+        category: "Infraestrutura",
+        description: "Aluguel de equipamentos de som e iluminação",
+        amount: 85000,
+      },
+      {
+        id: "b7",
+        category: "Divulgação",
+        description: "Material gráfico e marketing digital",
+        amount: 45000,
+      },
+      {
+        id: "b8",
+        category: "Produção",
+        description: "Cenografia, figurinos e adereços",
+        amount: 55000,
+      },
+      {
+        id: "b9",
         category: "Administração",
         description: "Custos administrativos e jurídicos",
-        amount: 35000
-      }
+        amount: 30000,
+        phaseId: "p4",
+      },
+      {
+        id: "b10",
+        category: "Encargos",
+        description: "Encargos sociais e impostos",
+        amount: 20000,
+      },
     ],
     checklist: [
       {
         id: "c1",
-        title: "Documentação do proponente",
-        completed: true
+        title: "Documentação do proponente (CNPJ, estatuto)",
+        completed: true,
+        category: "project",
+      },
+      { id: "c2", title: "Plano de trabalho completo", completed: true, category: "project" },
+      { id: "c3", title: "Orçamento detalhado", completed: true, category: "project" },
+      { id: "c4", title: "Cronograma de execução", completed: true, category: "project" },
+      { id: "c5", title: "Plano de divulgação", completed: false, category: "project" },
+      { id: "c6", title: "Plano de acessibilidade", completed: false, category: "project" },
+      { id: "c7", title: "Carta de anuência dos locais", completed: false, category: "project" },
+      { id: "c8", title: "Contrapartida social definida", completed: true, category: "project" },
+      {
+        id: "c9",
+        title: "RG/CPF - Maria Silva",
+        completed: true,
+        category: "team_member",
+        teamMemberId: "t1",
       },
       {
-        id: "c2",
-        title: "Plano de trabalho completo",
-        completed: true
+        id: "c10",
+        title: "Currículo artístico - Maria Silva",
+        completed: true,
+        category: "team_member",
+        teamMemberId: "t1",
       },
       {
-        id: "c3",
-        title: "Orçamento detalhado",
-        completed: true
+        id: "c11",
+        title: "Carta de anuência - Maria Silva",
+        completed: false,
+        category: "team_member",
+        teamMemberId: "t1",
       },
       {
-        id: "c4",
-        title: "Currículo da equipe",
-        completed: false
+        id: "c12",
+        title: "RG/CPF - João Santos",
+        completed: true,
+        category: "team_member",
+        teamMemberId: "t2",
       },
       {
-        id: "c5",
-        title: "Carta de anuência dos locais",
-        completed: false
+        id: "c13",
+        title: "Currículo artístico - João Santos",
+        completed: false,
+        category: "team_member",
+        teamMemberId: "t2",
       },
       {
-        id: "c6",
-        title: "Cronograma de execução",
-        completed: true
+        id: "c14",
+        title: "Carta de anuência - João Santos",
+        completed: false,
+        category: "team_member",
+        teamMemberId: "t2",
       },
       {
-        id: "c7",
-        title: "Plano de divulgação",
-        completed: false
+        id: "c15",
+        title: "CNPJ/Contrato Social - Teatro Livre Ltda",
+        completed: true,
+        category: "team_member",
+        teamMemberId: "t4",
       },
       {
-        id: "c8",
-        title: "Contrapartida social definida",
-        completed: true
-      }
-    ]
+        id: "c16",
+        title: "Certidões negativas - Teatro Livre Ltda",
+        completed: false,
+        category: "team_member",
+        teamMemberId: "t4",
+      },
+    ],
+    team: [
+      {
+        id: "t1",
+        name: "Maria Silva",
+        type: "PF",
+        role: "Diretora Artística",
+        workloadHours: 480,
+        fee: 60000,
+        taxes: { inss: 6600, iss: 3000, irrf: 4500, other: 0 },
+        documents: [
+          { id: "td1", title: "RG/CPF", required: true, submitted: true },
+          { id: "td2", title: "Comprovante de endereço", required: true, submitted: true },
+          { id: "td3", title: "Currículo artístico", required: true, submitted: true },
+          { id: "td4", title: "Carta de anuência", required: true, submitted: false },
+        ],
+        profile: {
+          artisticCV:
+            "Diretora teatral com 15 anos de experiência. Formada em Artes Cênicas pela USP. Dirigiu mais de 30 espetáculos em São Paulo.",
+          portfolio: "https://portfolio.mariasilva.art",
+          previousProjects: [
+            "Festival de Teatro da Periferia 2024",
+            "Mostra Cênica Comunitária 2023",
+          ],
+          gender: "Feminino",
+          race: "Parda",
+          territory: "Zona Sul - SP",
+        },
+      },
+      {
+        id: "t2",
+        name: "João Santos",
+        type: "PF",
+        role: "Produtor Executivo",
+        workloadHours: 400,
+        fee: 45000,
+        taxes: { inss: 4950, iss: 2250, irrf: 3375, other: 0 },
+        documents: [
+          { id: "td5", title: "RG/CPF", required: true, submitted: true },
+          { id: "td6", title: "Comprovante de endereço", required: true, submitted: false },
+          { id: "td7", title: "Currículo artístico", required: true, submitted: false },
+          { id: "td8", title: "Carta de anuência", required: true, submitted: false },
+        ],
+        profile: {
+          artisticCV:
+            "Produtor cultural com 10 anos de experiência em projetos comunitários e editais públicos.",
+          portfolio: "",
+          previousProjects: ["Mostra de Dança Urbana 2025"],
+          gender: "Masculino",
+          race: "Branco",
+          territory: "Centro - SP",
+        },
+      },
+      {
+        id: "t3",
+        name: "Ana Oliveira",
+        type: "PF",
+        role: "Cenógrafa",
+        workloadHours: 320,
+        fee: 35000,
+        taxes: { inss: 3850, iss: 1750, irrf: 2625, other: 0 },
+        documents: [
+          { id: "td9", title: "RG/CPF", required: true, submitted: true },
+          { id: "td10", title: "Currículo artístico", required: true, submitted: true },
+          { id: "td11", title: "Carta de anuência", required: true, submitted: true },
+        ],
+        profile: {
+          artisticCV: "Cenógrafa premiada com trabalhos em teatro, dança e cinema.",
+          portfolio: "https://anaoliveira.com/portfolio",
+          previousProjects: ["Cenografia Mostra SP 2025", "Teatro Municipal 2024"],
+          gender: "Feminino",
+          race: "Negra",
+          territory: "Zona Leste - SP",
+        },
+      },
+      {
+        id: "t4",
+        name: "Teatro Livre Ltda",
+        type: "PJ",
+        role: "Produção Técnica",
+        workloadHours: 600,
+        fee: 40000,
+        taxes: { inss: 0, iss: 2000, irrf: 0, other: 1200 },
+        documents: [
+          { id: "td12", title: "CNPJ", required: true, submitted: true },
+          { id: "td13", title: "Contrato Social", required: true, submitted: true },
+          { id: "td14", title: "Certidões negativas", required: true, submitted: false },
+        ],
+        profile: {
+          artisticCV: "Empresa de produção técnica especializada em eventos culturais e teatro.",
+          portfolio: "https://teatrolivre.com.br",
+          previousProjects: ["SESC Verão 2025", "Festival de Inverno 2024"],
+        },
+      },
+      {
+        id: "t5",
+        name: "Carlos Lima",
+        type: "PF",
+        role: "Educador Social",
+        workloadHours: 240,
+        fee: 25000,
+        taxes: { inss: 2750, iss: 1250, irrf: 1875, other: 0 },
+        documents: [
+          { id: "td15", title: "RG/CPF", required: true, submitted: true },
+          { id: "td16", title: "Currículo artístico", required: true, submitted: true },
+          { id: "td17", title: "Carta de anuência", required: true, submitted: true },
+        ],
+        profile: {
+          artisticCV:
+            "Educador social e arte-educador com 8 anos de experiência em periferias de SP.",
+          portfolio: "",
+          previousProjects: ["Oficina de Teatro na Quebrada 2024"],
+          gender: "Masculino",
+          race: "Negro",
+          territory: "Zona Sul - SP",
+          hasAccessibilityNeeds: false,
+        },
+      },
+    ],
+    timeline: [
+      {
+        id: "p1",
+        name: "Pré-produção",
+        startDate: "2026-01-15",
+        endDate: "2026-03-15",
+        activities: [
+          "Seleção de elenco",
+          "Definição de repertório",
+          "Contratação da equipe técnica",
+        ],
+        teamMemberIds: ["t1", "t2"],
+        budgetAllocation: 80000,
+      },
+      {
+        id: "p2",
+        name: "Ensaios",
+        startDate: "2026-03-01",
+        endDate: "2026-05-31",
+        activities: ["Ensaios semanais", "Oficinas de formação", "Construção de cenários"],
+        teamMemberIds: ["t1", "t3", "t5"],
+        budgetAllocation: 120000,
+      },
+      {
+        id: "p3",
+        name: "Temporada do Festival",
+        startDate: "2026-06-01",
+        endDate: "2026-07-15",
+        activities: ["15 apresentações", "Debates pós-espetáculo", "Registro audiovisual"],
+        teamMemberIds: ["t1", "t2", "t3", "t4", "t5"],
+        budgetAllocation: 180000,
+      },
+      {
+        id: "p4",
+        name: "Pós-produção",
+        startDate: "2026-07-16",
+        endDate: "2026-08-31",
+        activities: ["Avaliação de resultados", "Relatórios", "Prestação de contas"],
+        teamMemberIds: ["t2"],
+        budgetAllocation: 60000,
+      },
+    ],
+    scoreAxes: [
+      {
+        id: "sa1",
+        name: "Coerência narrativa",
+        score: 82,
+        maxScore: 100,
+        description: "Consistência entre justificativa, objetivos e metodologia.",
+        suggestions: ["Alinhar melhor objetivos e metas quantitativas"],
+      },
+      {
+        id: "sa2",
+        name: "Aderência ao edital",
+        score: 75,
+        maxScore: 100,
+        description: "Conformidade com exigências específicas do edital.",
+        suggestions: ["Incluir mais detalhes sobre acessibilidade conforme exigido pelo edital"],
+      },
+      {
+        id: "sa3",
+        name: "Clareza técnica",
+        score: 68,
+        maxScore: 100,
+        description: "Qualidade e precisão das descrições técnicas.",
+        suggestions: [
+          "Expandir a metodologia com mais detalhes técnicos",
+          "Incluir cronograma detalhado de atividades",
+        ],
+      },
+      {
+        id: "sa4",
+        name: "Viabilidade orçamentária",
+        score: 88,
+        maxScore: 100,
+        description: "Coerência e realismo do orçamento.",
+        suggestions: ["Incluir cotações de referência"],
+      },
+      {
+        id: "sa5",
+        name: "Impacto social",
+        score: 90,
+        maxScore: 100,
+        description: "Potencial de transformação social.",
+        suggestions: ["Adicionar indicadores de impacto de longo prazo"],
+      },
+      {
+        id: "sa6",
+        name: "Acessibilidade",
+        score: 55,
+        maxScore: 100,
+        description: "Medidas de inclusão e acessibilidade.",
+        suggestions: [
+          "Incluir audiodescrição e Libras",
+          "Prever orçamento específico para acessibilidade",
+        ],
+      },
+      {
+        id: "sa7",
+        name: "Capacidade de execução",
+        score: 78,
+        maxScore: 100,
+        description: "Experiência da equipe e viabilidade logística.",
+        suggestions: ["Detalhar experiência prévia da equipe com projetos similares"],
+      },
+    ],
+    coherenceAlerts: [
+      {
+        id: "ca1",
+        severity: "warning",
+        message:
+          "Projeto declara acessibilidade como prioridade, mas não há rubrica específica de acessibilidade no orçamento.",
+        relatedSections: ["s9", "s7"],
+        suggestion:
+          "Adicione uma rubrica de acessibilidade no orçamento (audiodescrição, intérprete de Libras, adaptações).",
+      },
+      {
+        id: "ca2",
+        severity: "warning",
+        message:
+          "Equipe concentrada em regiões centrais, mas o projeto visa comunidades periféricas.",
+        relatedSections: ["s5", "s2"],
+        suggestion:
+          "Considere incluir profissionais das próprias comunidades beneficiadas ou justificar a composição atual.",
+      },
+      {
+        id: "ca3",
+        severity: "info",
+        message:
+          "Custo por beneficiário estimado em R$ 88,00 (R$ 440.000 / 5.000 pessoas). Valor dentro da média para projetos de artes cênicas.",
+        relatedSections: ["s5", "s7"],
+        suggestion:
+          "Mantenha a justificativa clara sobre custo-benefício no texto da justificativa.",
+      },
+    ],
+    documents: [
+      {
+        id: "d1",
+        title: "Declaração de Exclusividade",
+        type: "declaration",
+        description: "Declaração de que o projeto não recebe financiamento de outra fonte pública.",
+        generated: false,
+      },
+      {
+        id: "d2",
+        title: "Currículo Resumido - Maria Silva",
+        type: "cv",
+        description: "Currículo artístico resumido para anexar ao projeto.",
+        generated: true,
+        teamMemberId: "t1",
+      },
+      {
+        id: "d3",
+        title: "Currículo Resumido - João Santos",
+        type: "cv",
+        description: "Currículo artístico resumido para anexar ao projeto.",
+        generated: false,
+        teamMemberId: "t2",
+      },
+      {
+        id: "d4",
+        title: "Carta de Anuência - Praça da Comunidade",
+        type: "anuencia",
+        description: "Carta de autorização de uso do espaço público.",
+        generated: false,
+      },
+      {
+        id: "d5",
+        title: "Plano de Acessibilidade",
+        type: "accessibility_plan",
+        description: "Detalhamento das medidas de acessibilidade do projeto.",
+        generated: false,
+      },
+      {
+        id: "d6",
+        title: "Plano de Comunicação",
+        type: "communication_plan",
+        description: "Estratégia completa de divulgação e comunicação.",
+        generated: false,
+      },
+    ],
   },
   {
     id: "2",
@@ -146,69 +694,259 @@ export const mockProjects: Project[] = [
     maxBudget: 300000,
     createdAt: "2026-02-01",
     updatedAt: "2026-02-15",
+    approvalProbability: 48,
+    editalFiles: [
+      {
+        id: "ef5",
+        name: "Edital_Artes_Visuais_MinC_2026.pdf",
+        size: 1870000,
+        type: "application/pdf",
+        uploadedAt: "2026-02-01",
+      },
+      {
+        id: "ef6",
+        name: "Anexo_Unico_Formulario.pdf",
+        size: 256000,
+        type: "application/pdf",
+        uploadedAt: "2026-02-01",
+      },
+    ],
+    evaluationCriteria: [
+      {
+        id: "ec8",
+        name: "Conceito curatorial",
+        weight: 3,
+        maxScore: 10,
+        description:
+          "Solidez e originalidade da proposta curatorial, diálogo com o cenário artístico contemporâneo.",
+      },
+      {
+        id: "ec9",
+        name: "Impacto territorial",
+        weight: 2,
+        maxScore: 10,
+        description:
+          "Abrangência geográfica e alcance da exposição em comunidades e territórios diversos.",
+      },
+      {
+        id: "ec10",
+        name: "Formação de público",
+        weight: 2,
+        maxScore: 10,
+        description:
+          "Ações educativas, mediação cultural e estratégias de formação de novos públicos para artes visuais.",
+      },
+      {
+        id: "ec11",
+        name: "Viabilidade de execução",
+        weight: 2,
+        maxScore: 10,
+        description: "Coerência entre proposta, equipe, orçamento e cronograma.",
+      },
+      {
+        id: "ec12",
+        name: "Diversidade e representatividade",
+        weight: 1.5,
+        maxScore: 10,
+        description: "Representatividade de gênero, raça e território entre artistas e equipe.",
+      },
+    ],
     sections: [
       {
         id: "s1",
+        title: "Identificação",
+        description: "Dados do projeto e do proponente.",
+        text: "Projeto: Exposição de Arte Contemporânea. Proponente: Galeria Nova Expressão.",
+        score: 60,
+        suggestions: ["Completar dados de CNPJ, endereço e responsável"],
+        status: "medium",
+        weight: 1,
+      },
+      {
+        id: "s2",
         title: "Justificativa",
+        description: "Por que o projeto é necessário e relevante.",
         text: "Promover a arte contemporânea brasileira através de uma exposição inédita.",
         score: 55,
         suggestions: [
           "Desenvolver mais o contexto histórico e cultural",
           "Adicionar justificativas sobre a relevância dos artistas selecionados",
-          "Incluir análise do cenário artístico atual"
+          "Incluir análise do cenário artístico atual",
         ],
         status: "medium",
-        weight: 3
+        weight: 3,
       },
       {
-        id: "s2",
+        id: "s3",
         title: "Objetivos",
+        description: "O que se pretende alcançar com o projeto.",
         text: "Apresentar obras de 20 artistas emergentes.",
         score: 40,
         suggestions: [
           "Definir objetivos mais específicos e mensuráveis",
           "Incluir metas de público e engajamento",
-          "Adicionar objetivos educacionais e de formação de público"
+          "Adicionar objetivos educacionais e de formação de público",
         ],
         status: "incomplete",
-        weight: 2.5
-      }
+        weight: 2.5,
+      },
     ],
     budgetItems: [
       {
         id: "b1",
         category: "Curadoria",
         description: "Honorários de curadores",
-        amount: 50000
+        amount: 50000,
+        teamMemberId: "t6",
       },
       {
         id: "b2",
         category: "Montagem",
         description: "Cenografia e instalação das obras",
-        amount: 80000
-      }
+        amount: 80000,
+      },
     ],
     checklist: [
+      { id: "c1", title: "Documentação do proponente", completed: true, category: "project" },
+      { id: "c2", title: "Plano curatorial", completed: false, category: "project" },
+      { id: "c3", title: "Orçamento detalhado", completed: true, category: "project" },
+      { id: "c4", title: "Lista de artistas participantes", completed: false, category: "project" },
+    ],
+    team: [
       {
-        id: "c1",
-        title: "Documentação do proponente",
-        completed: true
+        id: "t6",
+        name: "Lucia Fernandes",
+        type: "PF",
+        role: "Curadora",
+        workloadHours: 200,
+        fee: 50000,
+        taxes: { inss: 5500, iss: 2500, irrf: 3750, other: 0 },
+        documents: [
+          { id: "td18", title: "RG/CPF", required: true, submitted: true },
+          { id: "td19", title: "Currículo artístico", required: true, submitted: false },
+        ],
+        profile: {
+          artisticCV: "Curadora independente com 12 anos de experiência em galerias e museus.",
+          portfolio: "https://luciafernandes.art",
+          previousProjects: ["Bienal de Arte Digital 2025"],
+          gender: "Feminino",
+          race: "Branca",
+          territory: "Centro - RJ",
+        },
+      },
+    ],
+    timeline: [
+      {
+        id: "p1",
+        name: "Curadoria e Seleção",
+        startDate: "2026-03-01",
+        endDate: "2026-05-31",
+        activities: ["Seleção de artistas", "Definição conceitual"],
+        teamMemberIds: ["t6"],
+        budgetAllocation: 50000,
       },
       {
-        id: "c2",
-        title: "Plano curatorial",
-        completed: false
+        id: "p2",
+        name: "Montagem e Exposição",
+        startDate: "2026-06-01",
+        endDate: "2026-08-31",
+        activities: ["Montagem", "Abertura", "Mediação"],
+        teamMemberIds: ["t6"],
+        budgetAllocation: 80000,
+      },
+    ],
+    scoreAxes: [
+      {
+        id: "sa1",
+        name: "Coerência narrativa",
+        score: 50,
+        maxScore: 100,
+        description: "Consistência do projeto.",
+        suggestions: ["Desenvolver justificativa e objetivos"],
       },
       {
-        id: "c3",
-        title: "Orçamento detalhado",
-        completed: true
+        id: "sa2",
+        name: "Aderência ao edital",
+        score: 45,
+        maxScore: 100,
+        description: "Conformidade com o edital.",
+        suggestions: ["Completar todas as seções obrigatórias"],
       },
       {
-        id: "c4",
-        title: "Lista de artistas participantes",
-        completed: false
-      }
-    ]
-  }
+        id: "sa3",
+        name: "Clareza técnica",
+        score: 40,
+        maxScore: 100,
+        description: "Precisão das descrições.",
+        suggestions: ["Expandir descrições técnicas"],
+      },
+      {
+        id: "sa4",
+        name: "Viabilidade orçamentária",
+        score: 55,
+        maxScore: 100,
+        description: "Coerência do orçamento.",
+        suggestions: ["Detalhar rubricas"],
+      },
+      {
+        id: "sa5",
+        name: "Impacto social",
+        score: 45,
+        maxScore: 100,
+        description: "Potencial de transformação.",
+        suggestions: ["Definir impacto social esperado"],
+      },
+      {
+        id: "sa6",
+        name: "Acessibilidade",
+        score: 30,
+        maxScore: 100,
+        description: "Medidas de inclusão.",
+        suggestions: ["Incluir plano de acessibilidade"],
+      },
+      {
+        id: "sa7",
+        name: "Capacidade de execução",
+        score: 60,
+        maxScore: 100,
+        description: "Experiência da equipe.",
+        suggestions: ["Adicionar mais membros à equipe"],
+      },
+    ],
+    coherenceAlerts: [
+      {
+        id: "ca1",
+        severity: "error",
+        message:
+          "Projeto possui apenas 3 de 11 seções preenchidas. Muitas seções obrigatórias estão ausentes.",
+        relatedSections: [],
+        suggestion: "Complete todas as seções obrigatórias do projeto antes da submissão.",
+      },
+      {
+        id: "ca2",
+        severity: "warning",
+        message:
+          "Equipe possui apenas 1 membro. Para um projeto deste porte, considere ampliar a equipe.",
+        relatedSections: [],
+        suggestion: "Adicione profissionais de montagem, educativo e comunicação.",
+      },
+    ],
+    documents: [
+      {
+        id: "d1",
+        title: "Declaração de Exclusividade",
+        type: "declaration",
+        description: "Declaração de financiamento exclusivo.",
+        generated: false,
+      },
+      {
+        id: "d2",
+        title: "Currículo Resumido - Lucia Fernandes",
+        type: "cv",
+        description: "Currículo da curadora.",
+        generated: false,
+        teamMemberId: "t6",
+      },
+    ],
+  },
 ];
