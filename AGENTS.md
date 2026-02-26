@@ -19,6 +19,7 @@ Before starting any work, load relevant context:
 - @context/intent/feature-*.md (for specific feature)
 - @context/decisions/*.md (relevant decisions)
 - @context/knowledge/patterns/*.md (patterns to follow)
+- @context/knowledge/frontend-architecture-and-code-standards.md (frontend architecture, lint, tests, clean code, DRY, KISS)
 
 ## Project Structure
 root/

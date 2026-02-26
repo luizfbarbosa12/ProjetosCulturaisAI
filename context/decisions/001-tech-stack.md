@@ -26,6 +26,7 @@ Outcomes to be documented as project evolves.
 
 ## Related
 - [Project Intent](../intent/project-intent.md)
+- [Frontend Architecture and Tooling](003-frontend-architecture-and-tooling.md)
 - [Feature: Project Listing and Navigation](../intent/feature-project-listing.md)
 - [Feature: Project Detail and Scoring](../intent/feature-project-detail.md)
 - [Feature: Budget Management](../intent/feature-budget-management.md)
